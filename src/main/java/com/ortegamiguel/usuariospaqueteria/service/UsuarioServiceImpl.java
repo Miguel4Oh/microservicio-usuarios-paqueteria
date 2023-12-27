@@ -1,6 +1,7 @@
 package com.ortegamiguel.usuariospaqueteria.service;
 
 import com.ortegamiguel.usuariospaqueteria.models.dto.UsuarioDTO;
+import com.ortegamiguel.usuariospaqueteria.models.entities.Usuario;
 import com.ortegamiguel.usuariospaqueteria.models.mapper.UsuarioMapper;
 import com.ortegamiguel.usuariospaqueteria.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,13 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Autowired
     private UsuarioMapper usuarioMapper;
 
-    @Override
     @Transactional(readOnly = true)
     public List<UsuarioDTO> obtenerUsuarios() {
         return usuarioMapper.usuarioToUsuarioDtoList(usuarioRepository.findAll());
+    }
+
+    @Transactional
+    public UsuarioDTO agregarUsuario(Usuario usuario){
+        return usuarioMapper.usuarioToUsuarioDto(usuarioRepository.save(usuario));
     }
 }

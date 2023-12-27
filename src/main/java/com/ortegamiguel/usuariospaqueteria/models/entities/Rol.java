@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Data
 @Entity
@@ -14,7 +15,7 @@ public class Rol {
 
     @Id
     @Column(name = "ROL_ID")
-    private int rolId;
+    private Integer rolId;
 
     @Column(name = "NOMBRE_ROL")
     private String nombreRol;
