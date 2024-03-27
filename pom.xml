@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.17</version>
+        <version>3.2.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ortegamiguel</groupId>
@@ -65,7 +65,27 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
-            <version>2.7.18</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.12.5</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.12.5</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
+            <version>0.12.5</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -78,6 +98,7 @@
                 <scope>import</scope>
             </dependency>
         </dependencies>
+
     </dependencyManagement>
 
     <build>
@@ -102,8 +123,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source> <!-- depending on your project -->
-                    <target>1.8</target> <!-- depending on your project -->
+                    <source>10</source> <!-- depending on your project -->
+                    <target>10</target> <!-- depending on your project -->
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.mapstruct</groupId>
